@@ -143,26 +143,31 @@ namespace Snake
             {
                 Snake_Boby[0].Left = x + 10;//Snake_Boby[0]右移10
                 Snake_move(x, y);//调用
+                Snake_over();
             }
             else if (Key_Name == "Right")   //键盘状态处于  向右 状态
             {
                 Snake_Boby[0].Left = x + 10;
                 Snake_move(x, y);
+                Snake_over();
             }
             else if (Key_Name == "Up")     //键盘状态处于  向上  状态
             {
                 Snake_Boby[0].Top = y - 10;
                 Snake_move(x, y);
+                Snake_over();
             }
             else if (Key_Name == "Down")   //键盘状态处于  向下  状态
             {
                 Snake_Boby[0].Top = y + 10;
                 Snake_move(x, y);
+                Snake_over();
             }
             else if (Key_Name == "Left")    //键盘状态处于   向左 状态
             {
                 Snake_Boby[0].Left = x - 10;
                 Snake_move(x, y);
+                Snake_over();
             }
             //  穿墙设置
             if (x > 500)
@@ -222,7 +227,9 @@ namespace Snake
                 }
             }
         }
-
+        /// <summary>
+        /// 食物移位
+        /// </summary>
         public void Eat_time()
         {
             double x1 = 20, y1 = 20, x2 = 20, y2 = 20;
@@ -256,7 +263,11 @@ namespace Snake
                 }
             }
         }
-
+        /// <summary>
+        /// 画网格，Paint事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             int col = 50;
